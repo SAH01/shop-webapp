@@ -1,0 +1,51 @@
+.shop-index{
+    position: absolute;
+    width: 2000px;
+    height: 300px;
+    top: 210px;
+    left: 80px;
+}
+.shop-index-left{
+    position: relative;
+    height: 95%;
+    width: 200px;
+    background-color: #666699;
+    border-radius: 10px;
+    float: left;
+    padding: 0;
+}
+.shop-index-left ul{
+    position: relative;
+    width: 100%;
+    padding: 0;
+    list-style: none;
+    margin-top: 25px;
+}
+.shop-index-left ul li{
+    position: relative;
+    width: 100%;
+    height: 25px;
+    margin-top: 8px;
+    padding-left: 10px;
+    line-height: 25px;
+    font-size: 12px;
+    cursor: pointer;
+}
+.shop-index-left ul li:hover{
+    background-color: #9999CC;
+}
+.shop-index-left ul li a{
+    color: #F0F0F0;
+}
+.shop-index-left ul li a:hover{
+    color: #993333;
+}
+.shop-index-right{
+    position: relative;
+    margin-left: 20px;
+    height: 95%;
+    width: 580px;
+    /*border: 1px solid #F0F0F0;*/
+    border-radius: 10px;
+    float: left;
+}

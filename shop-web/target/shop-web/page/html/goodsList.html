@@ -1,0 +1,43 @@
+<%@ page import="java.io.*,java.util.*,java.sql.*"%>
+<%@ page import="javax.servlet.http.*,javax.servlet.*" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
+<%--连接数据库--%>
+<sql:setDataSource var="snapshot" driver="com.mysql.cj.jdbc.Driver"
+                   url="jdbc:mysql://localhost:3306/shop?serverTimezone=UTC"
+                   user="root"  password="reliable"/>
+<sql:query dataSource="${snapshot}" var="result">
+    SELECT * from goodslist;
+</sql:query>
+<!-- 商品列表页 -->
+<div class="shop-goodsList">
+    <div class="shop-goodsList-title">
+			<span>
+				<a href="/">首页</a>
+				&nbsp;&nbsp;/&nbsp;&nbsp;
+				商品列表项
+			</span>
+    </div>
+    <div class="shop-goodsList-body">
+        <c:if test="${empty result.rows}">
+            <div class="shop-null">
+                <img src="/static/img/null.png" width="30" height="30"/>
+                &nbsp;&nbsp;&nbsp;抱歉！没有你要查找的商品！
+            </div>
+        </c:if>
+        <c:if test="${!empty result.rows}">
+            <c:forEach var="row" items="${result.rows}">
+                <div class="shop-item2" id="${row.id}">
+                    <div class="shop-item2-img">
+                        <img src="${row.img}" width="146" height="148"/>
+                    </div>
+                    <div class="shop-item2-price">
+                        ￥ <c:out value="${row.price}"/>
+                    </div>
+                    <div class="shop-item2-name">
+                        <c:out value="${row.name}"/>
+                    </div>
+                </div>
+            </c:forEach>
+        </c:if>
+    </div>
+</div>
